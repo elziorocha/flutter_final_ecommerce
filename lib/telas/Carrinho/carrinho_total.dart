@@ -45,7 +45,7 @@ class _CarrinhoTotalState extends State<CarrinhoTotal> {
       case "EUR":
         return total / euro;
       default:
-        return total;
+        return total + (total / 5);
     }
   }
 
