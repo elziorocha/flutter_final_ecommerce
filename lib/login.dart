@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_final/database.dart';
-import 'package:flutter_final/telas/Home/homepage.dart';
+import 'package:flutter_final/telas/bottom_navbar.dart';
 
 class LoginScreen extends StatefulWidget {
+  LoginScreen({Key? key}) : super(key: key);
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -20,11 +21,11 @@ class _LoginScreenState extends State<LoginScreen> {
     if (user != null) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => HomeScreen()),
+        MaterialPageRoute(builder: (context) => const BottomNavbar()),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Login ou senha incorretos!')),
+        const SnackBar(content: Text('Login ou senha incorretos!')),
       );
     }
   }
@@ -36,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
     try {
       await _databaseHelper.registerUser(username, password);
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Usuário registrado com sucesso!')),
+        const SnackBar(content: Text('Usuário registrado com sucesso!')),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -69,25 +70,19 @@ class _LoginScreenState extends State<LoginScreen> {
                     color: Colors.deepPurple,
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 TextField(
                   controller: _usernameController,
                   decoration: InputDecoration(
-                    prefixIcon: const Icon(
-                      Icons.person,
-                      color: Colors.deepPurple,
-                    ),
+                    prefixIcon:
+                        const Icon(Icons.person, color: Colors.deepPurple),
                     labelText: 'Usuário',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 TextField(
                   controller: _passwordController,
                   obscureText: true,
@@ -100,10 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
-                // Botão de Login
+                const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: _login,
                   style: ElevatedButton.styleFrom(
@@ -117,9 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10),
                 TextButton(
                   onPressed: _register,
                   child: const Text(

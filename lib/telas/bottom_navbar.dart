@@ -28,7 +28,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
-            currentIndex = 2;
+            currentIndex = 2; // Define como o índice da tela inicial
           });
         },
         shape: const CircleBorder(),
