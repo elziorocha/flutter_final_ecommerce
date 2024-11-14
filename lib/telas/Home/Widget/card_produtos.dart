@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_final/Models/produtos_modelo.dart';
+import 'package:flutter_final/Provider/favorito_provider.dart';
 import 'package:flutter_final/constants.dart';
 import 'package:flutter_final/telas/Detalhes/tela_detalhes.dart';
 
@@ -9,6 +10,8 @@ class CardProdutos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = FavoriteProvider.of(context);
+
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -101,9 +104,13 @@ class CardProdutos extends StatelessWidget {
                   ),
                 ),
                 child: GestureDetector(
-                  onTap: () {},
-                  child: const Icon(
-                    Icons.favorite_border,
+                  onTap: () {
+                    provider.toggleFavorite(produto);
+                  },
+                  child: Icon(
+                    provider.isExist(produto)
+                        ? Icons.favorite
+                        : Icons.favorite_border,
                     color: Colors.white,
                   ),
                 ),

@@ -30,7 +30,7 @@ class _DetalhesProdutoState extends State<DetalhesProduto> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const AppbarDetalhes(),
+              AppbarDetalhes(produto: widget.produto),
               SliderDetalhes(
                 image: widget.produto.image,
                 onChange: (index) {

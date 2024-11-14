@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_final/constants.dart';
 import 'package:flutter_final/telas/Carrinho/carrinho.dart';
+import 'package:flutter_final/telas/Favoritos/favoritos.dart';
 import 'package:flutter_final/telas/Home/homepage.dart';
-import 'package:flutter_final/telas/favoritos.dart';
 
 class BottomNavbar extends StatefulWidget {
   const BottomNavbar({super.key});
@@ -28,7 +28,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
-            currentIndex = 2; // Define como o índice da tela inicial
+            currentIndex = 2;
           });
         },
         shape: const CircleBorder(),
